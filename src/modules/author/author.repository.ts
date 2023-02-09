@@ -7,7 +7,7 @@ export class AuthorRepository extends EntityRepository<Author> {
       .select('*')
       .joinAndSelect('books', 'b')
       .joinAndSelect('b.template', 'bt')
-      .joinAndSelect('b.comments', 'bc', {
+      .leftJoinAndSelect('b.comments', 'bc', {
         'bc.userUuid': userUuid,
       });
   }
