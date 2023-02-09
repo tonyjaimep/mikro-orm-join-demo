@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus, Param } from '@nestjs/common';
 import { Author } from './author.entity';
 import { AuthorService } from './author.service';
 
@@ -6,9 +6,10 @@ import { AuthorService } from './author.service';
 export class AuthorController {
   constructor(private readonly authorService: AuthorService) {}
 
-  @Get('with-book-comments-by-user/:uuid')
+  @Get('/with-book-comments-by-user/:uuid')
+  @HttpCode(HttpStatus.OK)
   async findAllWithBookCommentsByUser(
-    @Query() { uuid }: { uuid: string },
+    @Param('uuid') uuid: string,
   ): Promise<Author[]> {
     return this.authorService.findAllWithRelations(uuid);
   }

@@ -1,5 +1,5 @@
 {
-  "name": "mikro-orm-demo",
+  "name": "mikro-orm-join-demo",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -14,10 +14,10 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "migration:create": "npx mikro-orm migration:create",
-    "migration:up": "npx mikro-orm migration:up",
-    "migrateAndSeed": "npm run migration:up && npm run seeder:run",
-    "seeder:run": "npx mikro-orm seeder:run",
+    "migration:create": "mikro-orm migration:create",
+    "migration:up": "mikro-orm migration:up",
+    "migrateAndSeed": "yarn migration:up && yarn seeder:run",
+    "seeder:run": "mikro-orm seeder:run",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -61,7 +61,7 @@
     "supertest": "^6.1.3",
     "ts-jest": "28.0.8",
     "ts-loader": "^9.2.3",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.9.1",
     "tsconfig-paths": "4.1.0",
     "typescript": "^4.7.4"
   },
@@ -85,8 +85,8 @@
   "mikro-orm": {
     "useTsNode": true,
     "configPaths": [
-      "./src/mikro-orm/mikro-orm.config.ts",
-      "./dist/src/mikro-orm/mikro-orm.config.js"
+      "./mikro-orm.config.ts",
+      "./dist/mikro-orm.config.ts"
     ]
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Author } from './author.entity';
 import { AuthorRepository } from './author.repository';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class AuthorService {
   // - author's books
   // - author's book's templates
   // - author's book's comments from this user
-  findAllWithRelations(userUuid: string) {
+  async findAllWithRelations(userUuid: string): Promise<Author[]> {
     return this.authorRepository.findAllWithRelations(userUuid);
   }
 }
