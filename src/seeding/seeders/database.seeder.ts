@@ -20,7 +20,7 @@ class AuthorSeeder extends Seeder {
       uuid: AuthorSeeder.uuid2,
       name: 'Test Author 2',
     });
-    em.flush();
+    await em.flush();
   }
 }
 
@@ -37,7 +37,7 @@ class BookTemplateSeeder extends Seeder {
       uuid: BookTemplateSeeder.uuid2,
       foo: 'Test Book Template 2',
     });
-    em.flush();
+    await em.flush();
   }
 }
 
@@ -47,14 +47,18 @@ class BookSeeder extends Seeder {
 
   async run(em: EntityManager) {
     em.create(Book, {
+      uuid: BookSeeder.uuid1,
       author: AuthorSeeder.uuid1,
       template: BookTemplateSeeder.uuid1,
+      title: 'Test Book 1',
     });
     em.create(Book, {
+      uuid: BookSeeder.uuid2,
       author: AuthorSeeder.uuid2,
       template: BookTemplateSeeder.uuid2,
+      title: 'Test Book 2',
     });
-    em.flush();
+    await em.flush();
   }
 }
 
@@ -83,7 +87,7 @@ class CommentSeeder extends Seeder {
       book: BookSeeder.uuid2,
       message: 'Test comment 4',
     });
-    em.flush();
+    await em.flush();
   }
 }
 
