@@ -15,7 +15,7 @@ export class Comment {
   uuid = v4();
 
   @Property({ type: UuidType })
-  userUuid: UuidType;
+  userUuid: string;
 
   @ManyToOne()
   book: Book;

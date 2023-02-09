@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "workbench.editor.labelFormat": "short",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/.jest/cache": true,
+    "**/package-lock.json": true,
+    "**/.gitignore": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/.jest/cache": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
